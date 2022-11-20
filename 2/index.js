@@ -13,14 +13,14 @@ const fromAscii = (text) => {
             index += 1;
             charCodes.push(32);
             substrings.push(' ');
-        } else if(parseInt(text[index]) == 9) {
+        } else if(text[index] == '1') {
+                substrings.push(text.substring(index, index + 3));
+                charCodes.push(text.substring(index, index + 3));
+                index += 3;
+        } else if(parseInt(text[index]) <= 9) {
             substrings.push(text.substring(index, index + 2));
             charCodes.push(text.substring(index, index + 2));
             index += 2;
-        } else if(text[index] == '1') {
-            substrings.push(text.substring(index, index + 3));
-            charCodes.push(text.substring(index, index + 3));
-            index += 3;
         }
     }
 
